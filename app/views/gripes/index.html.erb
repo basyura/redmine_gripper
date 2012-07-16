@@ -1,0 +1,21 @@
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'gripper', :plugin => 'gripper' %>
+<% end %>
+  
+<h2>Gripes</h2>
+
+<%= form_for @gripe do |f| %>
+  <%= f.text_field :text %>
+  <%= f.submit :gripe %>
+<% end %>
+
+<hr>
+<% @gripes.each do |gripe| %>
+  <div class='gripe'>
+    <div class='user_name'><%= gripe.user.name %></div>
+    <div class='user_text'><%= gripe.text %> - <%= gripe.created_time %></div>
+  </div>
+  <div class='gripe_separator'>
+    <hr>
+  </div>
+<% end %>
